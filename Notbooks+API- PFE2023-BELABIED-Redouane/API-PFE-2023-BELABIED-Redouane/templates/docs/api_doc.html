@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href={{url_for('static',filename='styles.css') }}>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#welcome">Welcome</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#predict">/api/v1/predict</a>
+                            <a class="nav-link" href="#auth">/api/v1/auth</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                <header class="navbar navbar-dark bg-dark">
+                    <a class="navbar-brand" href="#">API Documentation</a>
+                </header>
+
+                <div class="container mt-5">
+                    <section id="welcome">
+                        <h1>Welcome to API Documentation</h1>
+                        <p>This documentation provides details about the API endpoints and their usage.</p>
+                    </section>
+
+                    <section id="predict">
+                        <h2>/api/v1/predict2</h2>
+                        <p><strong>Method:</strong> POST</p>
+                        <p><strong>Description:</strong> Predicts the label of the uploaded image using a deep learning CNN model.</p>
+                        <p><strong>Request:</strong></p>
+                        <ul>
+                            <li><strong>Form Data:</strong> my_image (image file)</li>
+                            <li><strong>Form Data:</strong> Authorization (API Token)</li>
+                        </ul>
+                        <p><strong>Response:</strong></p>
+                        <pre>
+{
+  "prediction": "predicted_label",
+  "with accuracy": "Accuracy"
+}
+                        </pre>
+                        <p><strong>Note:</strong> The prediction is made using a pre-trained deep learning CNN model that has been trained on a large dataset. The predicted label belongs to one of the following classes: 'MildDemented', 'ModerateDemented', 'NonDemented', 'VeryMildDemented'.</p>
+                    </section>
+
+
+
+                    <section id="auth">
+                        <h2>/api/v1/auth</h2>
+                        <p><strong>Method:</strong> POST</p>
+                        <p><strong>Description:</strong> Authentification.</p>
+                        <p><strong>Request:</strong></p>
+                        <ul>
+                            <li><strong>Json Data:</strong> username (string)</li>
+                            <li><strong>Json Data:</strong> password (string)</li>
+                        </ul>
+                        <p><strong>Response:</strong></p>
+                        <pre>
+{
+  "access_token": "api Token"
+}
+                        </pre>
+                        <p><strong>Note:</strong> You need to be registred inorder to use this endpoint.</p>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
